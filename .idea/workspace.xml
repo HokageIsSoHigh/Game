@@ -11,10 +11,17 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1a7CdtGA0uu33R6zA154IKXkafq" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -26,11 +33,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586077338831</updated>
-      <workItem from="1586077346583" duration="2000" />
+      <workItem from="1586077346583" duration="844000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="461" y="182" key="SettingsEditor" timestamp="1586078896911">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="461" y="182" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1586078896911" />
     <state x="656" y="364" key="com.intellij.ide.util.TipDialog" timestamp="1586077480826">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
