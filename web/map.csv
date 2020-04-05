@@ -1,0 +1,40 @@
+t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t
+t,t,t,Armor Seller,,,Con 10 5 25,,,,v,v,t,t,t,t,t,t,t,b,v,v,v,t,t,t
+t,Chest 10,t,t,t,t,,,,v,Slark 120 50 150,v,t,,,,,,v,v,b,b,t,,t,t
+t,v,t,,,t,,t,t,,v,t,v,,,,,,,,,t,,,t,t
+t,v,,,,t,,t,t,,,v,,,,,,t,,t,,,,,t,t
+t,v,Hero,Helper,,t,,,,,,v,t,,Con 25 10 25,,t,t,Chest 45,t,,,t,,t,t
+t,v,,v,,t,,,,,,v,t,t,,t,t,t,t,t,t,t,t,Naga 120 50 90,t,t
+t,,v,v,v,t,,v,,,,,v,,,,,,,,Trap 20,,t,,t,t
+t,,v,v,v,t,t,b,,Naga 100 45 50,,,v,v,,,,t,t,t,t,t,t,,t,t
+t,,v,t,v,t,t,v,b,b,v,v,v,v,,,v,,,,t,t,t,Chest 100,t,t
+t,,t,t,t,t,t,,,b,v,v,v,,,,,,,Con 30 20 35,t,t,t,t,t,t
+t,,t,t,t,t,t,,,,,,,,t,,,,t,t,t,t,t,t,t,t
+t,,,t,,,,,,,t,,,t,t,,,,t,,,,,,,t
+t,,,,,,,,,t,t,,,t,t,,,Con 30 10 45,t,,,,,,,t
+t,,,,,,,,,t,Con50 15 50,,,t,,,t,t,t,,,,,,v,t
+t,,,,,t,,t,,t,t,t,t,t,,,v,v,,,,t,t,,Phyrion 1000 60 1000,t
+t,,t,t,t,t,Con 50 25 60,t,,,,,,,v,Naga 30 12 15,,v,,,,t,t,,v,t
+t,,Con 20 10 30,,t,t,Seller Poision,t,,,,,,,t,t,v,v,,,,t,t,v,b,t
+t,,,,t,t,t,t,,t,t,t,,,t,t,v,v,,,,t,t,b,b,t
+t,,,,,,,b,v,t,,,,,t,v,v,v,,,,t,t,v,b,t
+t,,,v,v,,,v,b,t,Bear 75 30 80,,,,v,v,v,v,,,,t,t,b,t,t
+t,,,v,b,b,,,v,t,Chest 125,,,,,,,,,,t,v,t,t,t,t
+t,,v,v,b,v,,,,t,,,,,,b,v,b,,,,t,v,t,t,t
+t,,,,v,t,,,,t,t,t,,,,v,t,v,Con 30 10 35,,,,v,t,t,t
+t,,,Con 20 5 10,t,Chest 50,,,,,,,,t,t,b,v,b,t,t,t,,,t,t,t
+t,,t,t,t,t,,,,,,,,t,t,,v,,,,,,,t,t,t
+t,,,,,,,,,,,,Naga 50 23 28,v,t,b,v,,,,,,,Trap 25,,t
+t,,t,t,,,,b,,,v,v,b,b,v,v,,t,t,t,t,t,t,t,,t
+t,,t,t,,v,v,b,b,v,t,v,v,v,,,,t,b,b,b,t,,,,t
+t,,t,t,t,t,Naga 100,t,v,v,t,t,t,t,t,t,t,t,b,b,b,t,,,,t
+t,,t,t,t,t,v,t,v,t,t,Exp 40,Exp 20,Exp 40,t,t,t,t,t,,t,t,,t,t,t
+t,,t,t,t,t,v,t,v,t,t,t,,t,t,t,Trap 80,,t,,t,Con 80 25 90,,t,t,t
+t,Con 40 20 75,,t,t,t,,t,,,,t,,t,t,t,t,,,,t,,t,t,t,t
+t,,,t,t,t,,t,t,t,,t,,,t,t,t,t,t,,t,,t,t,Chest 300,t
+t,t,Trap 10,t,t,t,,t,t,t,,t,t,,t,t,t,t,,,t,Chest 150,t,,,t
+t,t,,t,t,t,,t,t,t,,t,t,,t,,t,,,,t,t,t,,t,t
+t,t,,t,t,t,,t,,,,,,,t,,,,t,,,t,,,t,t
+t,t,,t,t,t,,t,,t,t,t,t,,t,t,,t,t,t,,,,t,t,t
+t,t,Exp 100,t,t,t,Binoculars,t,,,Woodman 50 20 30,t,t,,,,,t,t,t,t,,,t,t,t
+t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t,t

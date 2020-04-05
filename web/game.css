@@ -1,0 +1,92 @@
+body {
+    font-family: 'DejaVu Sans Mono', monospace;
+    font-size: 12px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.cell {
+    color: transparent;
+    position: relative;
+    text-shadow: 0 0 0 black;
+    display: flex;
+    width: 12px;
+    height: 12px;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px rgba(0, 0, 0, 0.1);
+}
+
+
+.fog {
+    background-color: lightgray;
+    opacity: 0.3;
+}
+
+.visible {
+    background-color: white;
+}
+
+.controls {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    border-radius: 4px;
+    background-color: skyblue;
+}
+
+.good_notification {
+    font-style: italic;
+    color: darkgreen;
+}
+
+.bad_notification {
+    font-style: italic;
+    color: darkred;
+}
+
+.left, .right, .top, .down {
+    position: absolute;
+}
+
+.left {
+    top: 20px;
+    left: 0;
+}
+
+.right {
+    top: 20px;
+    right: 0;
+}
+
+.top {
+    top: 0;
+    left: 15px;
+}
+
+.down {
+    bottom: 0px;
+    left: 15px;
+}
+
+.Water {
+    background-color: blue;
+    color: darkblue;
+}
+
+.Bog {
+    background-color: darkolivegreen;
+    color: darkgreen;
+}
+
+.Hero {
+    color: transparent;
+    text-shadow: 0 0 0 black;
+    position: absolute;
+    z-index: 1000;
+    top: 0;
+    left: -1px;
+}
