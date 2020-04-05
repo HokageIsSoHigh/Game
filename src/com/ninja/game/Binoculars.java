@@ -47,5 +47,6 @@ public class Binoculars implements Element, Slot {
         return 0;
     }
     // hello
+    //yes
 
 }
