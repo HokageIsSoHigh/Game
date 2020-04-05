@@ -46,5 +46,6 @@ public class Binoculars implements Element, Slot {
     public int damage() {
         return 0;
     }
+    // hello
 
 }
