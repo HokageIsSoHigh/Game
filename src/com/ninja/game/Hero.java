@@ -7,7 +7,7 @@ import java.util.List;
 public class Hero implements Element, Enemy {
     public int x;
     public int y;
-    public int view = 3;
+    public int view = 2;
     public int health = 50;
     public int curHealth = this.health;
     public int money = 0;
@@ -26,21 +26,47 @@ public class Hero implements Element, Enemy {
     }
 
 
-    public boolean canSee(int x, int y) {
-        boolean hasBinoculars = false;
-        for (Object item : items) {
-            if (item.getClass() == Binoculars.class) {
-                hasBinoculars = true;
-            }
-        }
-
-        int fieldOfView = view;
-        if (hasBinoculars) {
-            fieldOfView += 5;
-        }
-
+    public boolean canSee(int x, int y, Map map) {
         double howFar = Math.sqrt(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2));
-        return howFar - 0.3 <= fieldOfView;
+        if (howFar - 0.3 <= view) {
+            for (Coordinates c : vision(this.x, this.y, x, y)) {
+                if (map.getElement(c.x, c.y) instanceof Tree) {
+                    return false;
+                }
+
+            }
+            return true;
+        }
+        return false;
+    }
+
+    private List<Coordinates> vision(float x1, float y1, float x2, float y2) {
+        List<Coordinates> coordinates = new ArrayList<>();
+        int i, L, xStart, yStart, xEnd, yEnd;
+        float dX, dY;
+        float[] x = new float[Map.WIDTH];
+        float[] y = new float[Map.HEIGHT];
+        xStart = Math.round(x1);
+        yStart = Math.round(y1);
+        xEnd = Math.round(x2);
+        yEnd = Math.round(y2);
+        L = Math.max(Math.abs(xEnd - xStart), Math.abs(yEnd - yStart));
+        dX = (x2 - x1) / L;
+        dY = (y2 - y1) / L;
+        i = 0;
+        x[i] = x1;
+        y[i] = y1;
+        i++;
+        while (i <= L) {
+            x[i] = x[i - 1] + dX;
+            y[i] = y[i - 1] + dY;
+            if (coordinates.isEmpty()) {
+                coordinates.add(new Coordinates(Math.round(x[i - 1]), Math.round(y[i - 1])));
+            }
+            coordinates.add(new Coordinates(Math.round(x[i]), Math.round(y[i])));
+            i++;
+        }
+        return coordinates;
     }
 
 
@@ -258,8 +284,8 @@ public class Hero implements Element, Enemy {
         }
     }
 
-    private void print(){
-        for (Coordinates c : vision(6, 6)){
+    private void print() {
+        for (Coordinates c : vision(6, 6)) {
             System.out.print("x: " + c.x + "y: " + c.y);
         }
     }

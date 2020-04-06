@@ -22,8 +22,8 @@ body {
 
 
 .fog {
-    background-color: lightgray;
-    opacity: 0.3;
+    background-color: gray;
+    opacity: 0;
 }
 
 .visible {
