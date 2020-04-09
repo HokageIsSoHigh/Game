@@ -1,8 +1,10 @@
 package com.ninja.game;
 
+import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Hero implements Element, Enemy {
     public int x;
@@ -18,6 +20,7 @@ public class Hero implements Element, Enemy {
     public Notification notification;
     public Buff buff;
     public List<Slot> items = new ArrayList();
+    public Set<Coordinates> seen = new HashSet();
     public String symbol;
 
     public Hero(Notification notification, Buff buff) {
@@ -33,12 +36,28 @@ public class Hero implements Element, Enemy {
                 if (map.getElement(c.x, c.y) instanceof Tree) {
                     return false;
                 }
-
             }
+            this.seen.add(new Coordinates(x, y));
             return true;
         }
         return false;
     }
+
+    public boolean hasSeen(int x, int y){
+        return seen.contains(new Coordinates(x, y));
+    }
+
+    public String see(int x, int y, Map map){
+        if (canSee(x, y, map)){
+            return "visible";
+        }if (hasSeen(x, y)) {
+            return "seen";
+        }else{
+            return "fog";
+        }
+    }
+
+
 
     private List<Coordinates> vision(float x1, float y1, float x2, float y2) {
         List<Coordinates> coordinates = new ArrayList<>();
@@ -57,7 +76,7 @@ public class Hero implements Element, Enemy {
         x[i] = x1;
         y[i] = y1;
         i++;
-        while (i <= L) {
+        while (i < L) {
             x[i] = x[i - 1] + dX;
             y[i] = y[i - 1] + dY;
             if (coordinates.isEmpty()) {

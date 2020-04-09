@@ -19,9 +19,10 @@
 <div class="row">
     <% for (int x = 0; x < Map.WIDTH; x++) { %>
     <% Element el = map.getElement(x, y); %>
-    <% String htmlClass = hero.canSee(x, y, map) ? "visible" : "fog"; %>
-    <div class="cell <%= htmlClass %> <%= el.getCSS() %>" title="<%= el.getHoverName() %>">
+    <div class="cell <%= hero.see(x, y, map) %> <%= el.getCSS() %>" title="<%= el.getHoverName() %>">
+        <%if (!hero.see(x, y, map).equals("fog")) {%>
         <%= el.getSymbol() %>
+        <% } %>
         <%if (hero.x == x && hero.y == y) { %>
         <div class="cell Hero <%= el.getCSS() %>" title="<%= el.getHoverName() %>">
             <%= hero.getSymbol() %>

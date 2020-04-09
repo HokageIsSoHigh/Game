@@ -21,14 +21,17 @@ body {
 }
 
 
-.fog {
-    background-color: gray;
-    opacity: 0;
-}
+
 
 .visible {
-    background-color: white;
+
 }
+
+.seen{
+    background-color: grey;
+    opacity: 0.5;
+}
+
 
 .controls {
     position: relative;
@@ -89,4 +92,8 @@ body {
     z-index: 1000;
     top: 0;
     left: -1px;
+}
+
+.fog {
+    background-color: gray;
 }
