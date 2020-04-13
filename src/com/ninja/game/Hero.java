@@ -1,6 +1,5 @@
 package com.ninja.game;
 
-import java.awt.event.MouseAdapter;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -31,7 +30,7 @@ public class Hero implements Element, Enemy {
 
     public boolean canSee(int x, int y, Map map) {
         double howFar = Math.sqrt(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2));
-        if (howFar - 0.3 <= view) {
+        if (howFar - 0.3 <= view()) {
             for (Coordinates c : vision(this.x, this.y, x, y)) {
                 if (map.getElement(c.x, c.y) instanceof Tree) {
                     return false;
@@ -43,20 +42,29 @@ public class Hero implements Element, Enemy {
         return false;
     }
 
-    public boolean hasSeen(int x, int y){
+    public boolean hasSeen(int x, int y) {
         return seen.contains(new Coordinates(x, y));
     }
 
-    public String see(int x, int y, Map map){
-        if (canSee(x, y, map)){
+    public String see(int x, int y, Map map) {
+        if (canSee(x, y, map)) {
             return "visible";
-        }if (hasSeen(x, y)) {
+        }
+        if (hasSeen(x, y)) {
             return "seen";
-        }else{
+        } else {
             return "fog";
         }
     }
 
+    public int view() {
+        for (Slot s : items) {
+            if (s.getName().equals("Binoculars")) {
+                return view + 3;
+            }
+        }
+        return view;
+    }
 
 
     private List<Coordinates> vision(float x1, float y1, float x2, float y2) {
