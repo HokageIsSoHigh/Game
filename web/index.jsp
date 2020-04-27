@@ -11,6 +11,9 @@
     <title>Dead screen</title>
   </head>
   <body>
+  <audio autoplay>
+    <source src="deadEnd.mp3" type="audio/mpeg">
+  </audio>
   <center><a href="${pageContext.request.contextPath}/controller?restart=1" style="text-decoration:none; color: black;">You dead</a></center>
   </body>
 </html>

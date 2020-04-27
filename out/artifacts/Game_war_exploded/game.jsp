@@ -15,6 +15,11 @@
 <body>
 <% Map map = (Map) request.getAttribute("map"); %>
 <% Hero hero = map.getHero(); %>
+<% for (String s : map.notification.getSounds()) {%>
+<audio autoplay>
+    <source src="<%= s %>" type="audio/mpeg">
+</audio>
+<% }%>
 <% for (int y = 0; y < Map.HEIGHT; y++) { %>
 <div class="row">
     <% for (int x = 0; x < Map.WIDTH; x++) { %>
@@ -64,7 +69,13 @@
                  <% } %>
              </span>
         <% } %>
-
+    </div>
+    <div class="buff">
+            <% for (Flag s : map.getHero().getFlags()) { %>
+                <span class="buff">
+                    <%= s.getName() %>
+                </span>
+            <% } %>
     </div>
     <div class="health_bar">
         <span class="health">Health: <%= hero.curHealth %> / <%= hero.health %></span><br>
@@ -82,6 +93,7 @@
             <span><%= n++ %></span>
             <span class="symbol"><%= hero.items.get(i).getName() %></span>
             <span class="description"><%= hero.items.get(i).getDescription() %></span>
+            <button type="submit" name="drop" value="<%= i %>">Drop</button>
             <button type="submit" name="delete" value="<%= i %>">Delete</button>
             <% if (hero.items.get(i).heal() > 0) {%>
             <% if (hero.items.get(i).getID() == 666) {%>
@@ -158,6 +170,11 @@
                 <td>
                     <button type="submit" name="attack" value="<%= 1 %>">Attack</button>
                 </td>
+                <% if (map.getHero().curHealth <= (map.getHero().health * 20/100) && map.getHero().inBattle()) {%>
+                <td>
+                    <button type="submit" name="escape" value="<%= 1 %>">Escape</button>
+                </td>
+                <% }%>
             </tr>
             <%}%>
         </table>

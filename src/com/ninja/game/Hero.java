@@ -20,6 +20,7 @@ public class Hero implements Element, Enemy {
     public Buff buff;
     public List<Slot> items = new ArrayList();
     public Set<Coordinates> seen = new HashSet();
+    public Set<Flag> flags = new HashSet<>();
     public String symbol;
 
     public Hero(Notification notification, Buff buff) {
@@ -174,6 +175,23 @@ public class Hero implements Element, Enemy {
         }
     }
 
+    public void dropSlot(int id, Map map) {
+        int idx = 0;
+        while (idx < items.size()) {
+            if (idx == id) {
+                if (items.get(id) instanceof Element) {
+                    map.addElement(this.x, this.y, (Element) items.get(id));
+                    notification.addNotification("Successful");
+                    items.remove(idx);
+                }
+                notification.addNotification("Failed!");
+                break;
+            } else {
+                idx++;
+            }
+        }
+    }
+
     public boolean searchSlot(String name) {
         for (Slot s : items) {
             if (s.getName().equals(name)) {
@@ -209,6 +227,7 @@ public class Hero implements Element, Enemy {
 
     }
 
+
     public void collectExp(int exp) {
         this.exp += exp;
         if (this.exp >= 100) {
@@ -230,6 +249,7 @@ public class Hero implements Element, Enemy {
 
         }
         notification.addNotification("+" + heal + " hp.");
+        notification.addSound("drink.mp3");
         deleteSlot(idx);
     }
 
@@ -311,11 +331,38 @@ public class Hero implements Element, Enemy {
         }
     }
 
-    private void print() {
-        for (Coordinates c : vision(6, 6)) {
-            System.out.print("x: " + c.x + "y: " + c.y);
-        }
+    public void addFlag(Flag flag) {
+        flags.add(flag);
+    }
+
+    public void removeFlag(Flag flag) {
+        flags.remove(flag);
     }
 
 
+    public boolean canMove() {
+        for (Flag s : flags) {
+            if (s.getWorkName().equals("inBattle")) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public Set<Flag> getFlags() {
+        return flags;
+    }
+
+    public void escape() {
+        flags.removeAll(flags);
+    }
+
+    public boolean inBattle() {
+        for (Flag s : flags) {
+            if (s.getWorkName().equals("inBattle")) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
