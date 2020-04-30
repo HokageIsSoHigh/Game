@@ -202,7 +202,6 @@ public class Hero implements Element, Enemy {
     }
 
 
-
     public void collectMoney(int money) {
         this.money += money;
     }
@@ -319,6 +318,15 @@ public class Hero implements Element, Enemy {
     public boolean inBattle() {
         for (Flag s : flags) {
             if (s.getWorkName().equals("inBattle")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean drunkVodka() {
+        for (UsedItems b : buff.getBuffList()) {
+            if (b.slot.getName().equals("Vodka")) {
                 return true;
             }
         }
