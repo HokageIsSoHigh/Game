@@ -22,7 +22,5 @@ public class Teleport implements Element {
         return "Teleport";
     }
 
-    public void teleport(){
 
-    }
 }

@@ -2,7 +2,6 @@ package com.ninja.game;
 
 public class Phyrion implements Enemy, Element {
     public int health;
-    private int maxHealth = health;
     public int damage;
     public int exp;
     private Buff buff = new Buff();

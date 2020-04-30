@@ -18,6 +18,6 @@ public class Water implements Element {
 
     @Override
     public String getHoverName() {
-        return "Bog";
+        return "Water";
     }
 }

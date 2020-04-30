@@ -9,10 +9,10 @@ public class Hero implements Element, Enemy {
     public int x;
     public int y;
     public int view = 2;
-    public int health = 50;
+    public int health = 10000;
     public int curHealth = this.health;
     public int money = 0;
-    public int damage = 5;
+    public int damage = 100000000;
     public int exp = 0;
     public int lvl = 1;
     public float armor = 1F;
@@ -200,6 +200,8 @@ public class Hero implements Element, Enemy {
         }
         return false;
     }
+
+
 
     public void collectMoney(int money) {
         this.money += money;

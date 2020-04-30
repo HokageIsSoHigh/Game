@@ -43,9 +43,16 @@ public class Map {
     public Enemy getEnemy(Hero hero) {
         if (elements[hero.x][hero.y] instanceof Enemy) {
             return (Enemy) elements[hero.x][hero.y];
-        } else {
-            return null;
         }
+        return null;
+
+    }
+
+    public boolean getTeleport(Hero hero) {
+        if (elements[hero.x][hero.y] instanceof Teleport) {
+            return true;
+        }
+        return false;
 
     }
 
@@ -55,6 +62,10 @@ public class Map {
 
     public void addElement(int x, int y, Element element) {
         elements[x][y] = element;
+    }
+
+    public void addElementByHero(Hero hero, Element element) {
+        elements[hero.x][hero.y] = element;
     }
 
     public void move(String direction) {
@@ -193,7 +204,11 @@ public class Map {
             notification.addNotification("You collect " + enemyName.exp() + " exp");
             hero.collectExp(enemyName.exp());
             hero.removeFlag(flag);
-            addElement(hero.x, hero.y, new Land());
+            if (enemyName instanceof Phyrion) {
+                addElement(hero.x, hero.y, new Teleport());
+            } else {
+                addElement(hero.x, hero.y, new Land());
+            }
         }
 
     }

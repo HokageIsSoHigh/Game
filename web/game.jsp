@@ -71,11 +71,11 @@
         <% } %>
     </div>
     <div class="buff">
-            <% for (Flag s : map.getHero().getFlags()) { %>
-                <span class="buff">
+        <% for (Flag s : map.getHero().getFlags()) { %>
+        <span class="buff">
                     <%= s.getName() %>
                 </span>
-            <% } %>
+        <% } %>
     </div>
     <div class="health_bar">
         <span class="health">Health: <%= hero.curHealth %> / <%= hero.health %></span><br>
@@ -170,7 +170,7 @@
                 <td>
                     <button type="submit" name="attack" value="<%= 1 %>">Attack</button>
                 </td>
-                <% if (map.getHero().curHealth <= (map.getHero().health * 20/100) && map.getHero().inBattle()) {%>
+                <% if (map.getHero().curHealth <= (map.getHero().health * 20 / 100) && map.getHero().inBattle()) {%>
                 <td>
                     <button type="submit" name="escape" value="<%= 1 %>">Escape</button>
                 </td>
@@ -178,6 +178,11 @@
             </tr>
             <%}%>
         </table>
+    </div>
+    <div>
+        <% if (map.getTeleport(hero)) { %>
+        <span class="teleport"><button type="submit" name="tp" value="<%= 1 %>">Teleport</button></span>
+        <% }%>
     </div>
 </form>
 

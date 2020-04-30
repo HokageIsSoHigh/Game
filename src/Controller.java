@@ -23,6 +23,7 @@ public class Controller extends HttpServlet {
         String useHeal = request.getParameter("heal");
         String drinkVodka = request.getParameter("vodka");
         String escape = request.getParameter("escape");
+        String teleport = request.getParameter("tp");
 
         if (direction != null && direction != "") {
             map.move(direction);
@@ -47,6 +48,10 @@ public class Controller extends HttpServlet {
         }
         if (escape != null && escape != "") {
             map.getHero().escape();
+        }
+        if (teleport != null && teleport != "") {
+            map = teleport();
+            session.setAttribute("map", map);
         }
 
         response.sendRedirect("/Game_war_exploded/controller");
@@ -82,6 +87,11 @@ public class Controller extends HttpServlet {
     private Map createMap() {
         Map map = new Map();
         LoadMap.loadMap(map, getServletContext().getResourceAsStream("/map.csv"));
+        return map;
+    }
+    private Map teleport() {
+        Map map = new Map();
+        LoadMap.loadMap(map, getServletContext().getResourceAsStream("/heaven.csv"));
         return map;
     }
 }
