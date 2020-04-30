@@ -9,10 +9,10 @@ public class Hero implements Element, Enemy {
     public int x;
     public int y;
     public int view = 2;
-    public int health = 10000;
+    public int health = 100;
     public int curHealth = this.health;
     public int money = 0;
-    public int damage = 100000000;
+    public int damage = 25;
     public int exp = 0;
     public int lvl = 1;
     public float armor = 1F;
@@ -289,49 +289,6 @@ public class Hero implements Element, Enemy {
 
     }
 
-    public List<Coordinates> vision(int x, int y) {
-
-        int xStart = this.x;
-        int yStart = this.y;
-        int xEnd = x;
-        int yEnd = y;
-
-        int xLine = xEnd - xStart;
-        int yLine = yEnd - yStart;
-        float dx = xLine / L(xLine, yLine);
-        float dy = yLine / L(xLine, yLine);
-
-        float newX = (float) (xStart * 0.5 * sign(dx));
-        float newY = (float) (yStart * 0.5 * sign(dy));
-
-        List<Coordinates> coordinates = new ArrayList<>();
-
-        for (int i = 0; i <= L(xLine, yLine); i++) {
-            newX = newX + dx;
-            newY = newY + dy;
-
-            coordinates.add(new Coordinates(Math.round(newX), Math.round(newY)));
-        }
-
-        return coordinates;
-
-    }
-
-    private int L(int xLine, int yLine) {
-        return Math.max(xLine, yLine);
-    }
-
-    private int sign(float d) {
-        if (d < 0) {
-            return -1;
-        }
-        if (d > 0) {
-            return 1;
-        } else {
-
-            return 0;
-        }
-    }
 
     public void addFlag(Flag flag) {
         flags.add(flag);
@@ -366,5 +323,16 @@ public class Hero implements Element, Enemy {
             }
         }
         return false;
+    }
+
+    public List<Integer> prevStats(int health, int damage, int money, int lvl, int exp, int armor) {
+        List<Integer> stats = new ArrayList<>();
+        stats.add(health);
+        stats.add(damage);
+        stats.add(money);
+        stats.add(lvl);
+        stats.add(exp);
+        stats.add(armor);
+        return stats;
     }
 }

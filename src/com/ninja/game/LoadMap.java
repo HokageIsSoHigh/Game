@@ -40,14 +40,16 @@ public class LoadMap {
                     map.addElement(x, y, new Water());
                 } else if (cell.contains("Woodman")) {
                     map.addElement(x, y, new Woodman(getHealthPoints(cell), getDamage(cell), getExp(cell)));
-                }else if (cell.contains("Phyrion")){
-                    map.addElement(x, y, new Phyrion( getHealthPoints(cell), getDamage(cell), getExp(cell)));
-                }else if (cell.contains("Exp")){
+                } else if (cell.contains("Phyrion")) {
+                    map.addElement(x, y, new Phyrion(getHealthPoints(cell), getDamage(cell), getExp(cell)));
+                } else if (cell.contains("Exp")) {
                     map.addElement(x, y, new ExperienceBook(getMoney(cell)));
-                } else if (cell.contains("b")){
+                } else if (cell.contains("b")) {
                     map.addElement(x, y, new Bog());
-                }else if (cell.contains("Slark")){
-                    map.addElement(x, y, new Slark( getHealthPoints(cell), getDamage(cell), getExp(cell)));
+                } else if (cell.contains("Slark")) {
+                    map.addElement(x, y, new Slark(getHealthPoints(cell), getDamage(cell), getExp(cell)));
+                } else if (cell.contains("Vanya Tolkunov")) {
+                    map.addElement(x, y, new VanyaTolkunov());
                 }
             }
         }

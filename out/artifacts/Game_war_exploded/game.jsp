@@ -12,14 +12,21 @@
     <title>Game</title>
     <link rel="stylesheet" href="game.css">
 </head>
-<body>
 <% Map map = (Map) request.getAttribute("map"); %>
 <% Hero hero = map.getHero(); %>
+<%String lowHp = "";%>
+<% if (hero.curHealth <= hero.health * 45 / 100) {
+    lowHp = "lowHp";
+}%>
+<body class="<%= lowHp %>">
+<form method="post">
+<div class="wrapper">
 <% for (String s : map.notification.getSounds()) {%>
 <audio autoplay>
     <source src="<%= s %>" type="audio/mpeg">
 </audio>
 <% }%>
+<div class="screen">
 <% for (int y = 0; y < Map.HEIGHT; y++) { %>
 <div class="row">
     <% for (int x = 0; x < Map.WIDTH; x++) { %>
@@ -37,8 +44,7 @@
     <% } %>
 </div>
 <% } %>
-
-<form method="post">
+</div>
 
     <div class="controls">
         <button class="left" type="submit" name="direction" value="left">⇦</button>
@@ -47,7 +53,7 @@
         <button class="down" type="submit" name="direction" value="down">⇩</button>
     </div>
 
-
+    <div class="userInterface">
     <div class="notification">
         <% for (String message : map.notification.getNotification()) { %>
         <span class="good_notification">
@@ -105,8 +111,8 @@
         </div>
         <% } %>
     </div>
-
-
+    </div>
+    <div class="information">
     <div class="seller_inventory">
         <% n = 1; %>
         <% NPC seller = map.getNPC(hero); %>
@@ -154,8 +160,10 @@
         <% if (enemy != null) {%>
         <table>
             <tr>
+                <td>Name</td>
                 <td>Health</td>
                 <td>Damage</td>
+                <td>Action</td>
             </tr>
             <tr>
                 <td>
@@ -184,8 +192,9 @@
         <span class="teleport"><button type="submit" name="tp" value="<%= 1 %>">Teleport</button></span>
         <% }%>
     </div>
+    </div>
 </form>
-
+</div>
 <script>
     function press(selector) {
         document.querySelector(selector).click();
