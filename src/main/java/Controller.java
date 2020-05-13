@@ -55,6 +55,7 @@ public class Controller extends HttpServlet {
         }
 
         response.sendRedirect("/Game_war_exploded/controller");
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -82,6 +83,7 @@ public class Controller extends HttpServlet {
 
     private void renderGameOver(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.sendRedirect("/Game_war_exploded/");
+
     }
 
     private Map createMap() {

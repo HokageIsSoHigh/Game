@@ -140,7 +140,7 @@ public class Hero implements Element, Enemy {
     @Override
     public void takeDamage(int damage) {
         if (damage > 0) {
-            damage = damage - ((int) armor / 2);
+            damage = Math.abs(damage - ((int) armor / 2));
             curHealth -= damage;
         }
 
@@ -333,14 +333,4 @@ public class Hero implements Element, Enemy {
         return false;
     }
 
-    public List<Integer> prevStats(int health, int damage, int money, int lvl, int exp, int armor) {
-        List<Integer> stats = new ArrayList<>();
-        stats.add(health);
-        stats.add(damage);
-        stats.add(money);
-        stats.add(lvl);
-        stats.add(exp);
-        stats.add(armor);
-        return stats;
-    }
 }
